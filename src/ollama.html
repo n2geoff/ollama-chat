@@ -41,7 +41,7 @@
                 <div v-for="(message, index) in chat.messages"
                      :key="index"
                      :class="message.role === 'user' ? 'message user-message' : 'message ai-message'"
-                     v-html="marked(message.content)">
+                     v-html="format(message.content)">
                 </div>
                 <div v-if="isLoading" class="loading-indicator">AI is typing...</div>
             </div>
@@ -56,7 +56,7 @@
                     <span style="color: red; float: right">{{error}}</span>
                 </div>
 
-                <form @submit.prevent="sendMessage">
+                <form @submit.prevent="send">
                     <textarea
                         v-model="input"
                         rows="3"
@@ -90,7 +90,7 @@
                 };
             },
             methods: {
-                marked(content) {
+                format(content) {
                     return marked.parse(content);
                 },
                 async fetchModels() {
@@ -110,7 +110,7 @@
                         this.model = "";
                     }
                 },
-                async sendMessage() {
+                async send() {
                     if (!this.input.trim()) return;
                     if (!this.model) {
                         alert("Please select a model first");
@@ -167,7 +167,7 @@
                 handleKeydown(event) {
                     if (event.key === "Enter" && !event.shiftKey) {
                         event.preventDefault();
-                        this.sendMessage();
+                        this.send();
                     }
                 },
                 create() {
