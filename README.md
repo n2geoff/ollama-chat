@@ -1,8 +1,8 @@
 # Ollama Chat
 
-Right now, this is little more than a [single-html-file](./src/ollama.html) that provides a chat interface to a locally installed and running [Ollama](https://ollama.com/)  instance.
+Right now, this is little more than a [single-page-app](./src/index.html) that provides a chat interface to a locally installed and running [Ollama](https://ollama.com/)  instance.
 
-![Ollama Chat](./src/assets/screenshot.png)
+![Ollama Chat](./src/images/screenshot.png)
 
 You just need to run it.
 
@@ -10,27 +10,27 @@ You just need to run it.
 
 ## Features
 
-- Chat with Ollama
+- Chat with Ollama (w/ context)
 - Select from installed models
 - Render conversation in Markdown for readablility
-- Chat History in Local Storage
+- Chat History (localStorage)
 - Dark Mode
 
 ### Future
 
-- Build as a [Neutralino App](https://neutralino.js.org/)
-- Add PWA Features
-- Basic Settings
-- Export / Import conversations
+- Basic Settings (localStorage)
 - Improve UI
+- Add PWA Features
+- Build as a [Neutralino App](https://neutralino.js.org/)
+- Export / Import conversations
 - More...
 
 ## Why
 
-Because I dont think you should need to use gigs of resources just to have a nice web chat interface.
+Because I dont think gigs of resources are need to have a nice web chat interface.
 
 ## Goals
 
 - Keep it small
 - Keep it useful
-- Keep Focus on Ollama
+- Keep it Focused on Ollama

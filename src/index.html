@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ollama Chat</title>
     <script src="https://unpkg.com/marked@4.0.12/marked.min.js"></script>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div id="app">
@@ -71,7 +71,7 @@
 
     <script type="module">
         import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
-        import {Storage} from "./assets/js/storage.min.js";
+        import {Storage} from "./js/storage.min.js";
 
         createApp({
             data() {
@@ -130,12 +130,25 @@
                     this.isLoading = true;
 
                     try {
+                        // keep context
+                        const context = JSON.stringify(this.chat.messages);
+
+                        // TODO: Limit Context?
+                        // option a
+                        // context.splice(-size);
+
+                        // option b
+                        // context = Array.from(this.chat.message).slice(-5);
+
+                        // option c
+                        // summarize
+
                         const response = await fetch(`${this.url}/api/generate`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
                                 model: this.model,
-                                prompt: prompt.content,
+                                prompt: context,
                                 stream: true
                             })
                         });
@@ -196,7 +209,7 @@
                     this.chats = this.store.set("ollama-chats", this.chats);
                 },
                 loads() {
-                    this.chats = this.store.get("ollama-chats");
+                    this.chats = this.store.get("ollama-chats") || [];
 
                     this.chat = this.chats[0];
                     this.chatIndex = 0;
