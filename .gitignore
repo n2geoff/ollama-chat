@@ -1,0 +1,33 @@
+# manged dependencies
+node_modules
+
+# output
+dist
+*.tgz
+
+# code coverage
+coverage
+*.lcov
+
+# logs
+logs
+
+# dotenv environment variable files
+.env
+
+# caches
+.eslintcache
+.cache
+*.tsbuildinfo
+
+# Neutralinojs
+neutralino.js
+*.log
+bin/
+.tmp/
+
+# IntelliJ based IDEs
+.idea
+
+# Finder (MacOS) folder config
+.DS_Store

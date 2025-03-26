@@ -1,0 +1,25 @@
+{
+	"name": "ollama-chat",
+	"description": "minimal llm chat agaist ollama models",
+	"keywords": ["ollama", "chat", "minimal", "spa"],
+	"version": "0.0.0",
+	"author": {
+		"name": "Geoff Doty",
+		"url": "https://github.com/n2geoff"
+	},
+	"module": "src/index.html",
+	"type": "module",
+	"license":"MIT",
+	"private": false,
+	"repository": {
+        "type": "git",
+        "url": "https://github.com/n2geoff/ollama-chat.git"
+    },
+	"scripts": {
+		"dev": "neu run"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {}
+}
